@@ -1,7 +1,6 @@
 """
-Распознаватель речи определяет тип команды,
-после чего кидает соответсвующее исключение,
-которое будет обработано.
+Команды реализованы в виде исключений для
+упрощения проброса от распознавателя к обработчику.
 """
 from logger import logger
 
@@ -27,16 +26,14 @@ class _BaseCommand(Exception):
         try:
             return self._type
         except AttributeError:
-            logger.exception(f"Для класс {self} не указан тип команды.")
-            return None
+            logger.exception(f"Для класса {type(self)} не указан тип команды.")
 
     @property
     def action(self):
         try:
             return self._action
         except AttributeError:
-            logger.exception(f"Для класс {self} не указано действие команды.")
-            return None
+            logger.exception(f"Для класса {type(self)} не указано действие команды.")
 
 
 # --- Музыка ---
@@ -62,7 +59,6 @@ class MusicPause(_Music):
     def __init__(self):
         super(MusicPause, self).__init__()
         self._action = Actions.pause
-    pass
 
 
 class MusicNext(_Music):
