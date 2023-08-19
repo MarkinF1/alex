@@ -6,15 +6,18 @@
 from logger import logger
 
 
-PLAY = 'play'
-PAUSE = 'pause'
-STOP = 'stop'
-NEXT = 'next'
-SAY = 'say'
+class Actions:
+    play = 'play'
+    pause = 'pause'
+    stop = 'stop'
+    next = 'next'
+    say = 'say'
 
-TYPE_MUSIC = 'music'
-TYPE_WEATHER = 'weather'
-TYPE_TIME = 'time'
+
+class Types:
+    music = 'music'
+    weather = 'weather'
+    time = 'time'
 
 
 # --- Базовый класс для команд ---
@@ -40,45 +43,45 @@ class _BaseCommand(Exception):
 class _Music(_BaseCommand):
     def __init__(self):
         super(_Music, self).__init__()
-        self._type = TYPE_MUSIC
+        self._type = Types.music
 
 
 class MusicPlay(_Music):
     def __init__(self):
         super(MusicPlay, self).__init__()
-        self._action = PLAY
+        self._action = Actions.play
 
 
 class MusicStop(_Music):
     def __init__(self):
         super(MusicStop, self).__init__()
-        self._action = STOP
+        self._action = Actions.stop
 
 
 class MusicPause(_Music):
     def __init__(self):
         super(MusicPause, self).__init__()
-        self._action = PAUSE
+        self._action = Actions.pause
     pass
 
 
 class MusicNext(_Music):
     def __init__(self):
         super(MusicNext, self).__init__()
-        self._action = NEXT
+        self._action = Actions.next
 
 
 # --- Погода ---
 class WeatherSay(_BaseCommand):
     def __init__(self):
         super(WeatherSay, self).__init__()
-        self._type = TYPE_WEATHER
-        self._action = SAY
+        self._type = Types.weather
+        self._action = Actions.say
 
 
 # --- Время ---
 class TimeSay(_BaseCommand):
     def __init__(self):
         super(TimeSay, self).__init__()
-        self._type = TYPE_TIME
-        self._action = SAY
+        self._type = Types.time
+        self._action = Actions.say
