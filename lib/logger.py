@@ -5,4 +5,3 @@ logging.basicConfig(handlers=(logging.FileHandler('output.log'), logging.StreamH
                     datefmt='%d-%m-%Y %H:%M:%S',
                     level=logging.DEBUG)
 logger = logging.getLogger(__name__)
-
