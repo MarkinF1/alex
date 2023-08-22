@@ -8,13 +8,14 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+.idea
 build/
 develop-eggs/
 dist/
 downloads/
 eggs/
 .eggs/
-lib/
+lib/voice/models/
 lib64/
 parts/
 sdist/
