@@ -3,7 +3,7 @@ recognizer:
   language: ru
   model_path: ./lib/voice/models/vosk-model-ru-0.42
   online: True
-assistant:
+speaker:
   name: Alice
   sex: female
   speech_language: ru
